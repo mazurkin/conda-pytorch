@@ -3,4 +3,7 @@
 /*.ipr
 /*.iws
 
+.ipynb_checkpoints
+__pycache__
+
 /notebooks
