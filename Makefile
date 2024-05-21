@@ -7,6 +7,7 @@
 # https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html
 
 SHELL := /bin/bash
+ROOT  := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 CONDA_ENV_NAME = pytorch
 CONDA_ENV_FULL_FILE = environment-full.yaml
@@ -21,7 +22,7 @@ notebook:
 			--ServerApp.use_redirect_file=True \
 			--ip=localhost \
 			--port=8888 \
-			--notebook-dir=$$(pwd)
+			--notebook-dir=$(ROOT)/notebooks
 
 .PHONY: env-create
 env-create:
