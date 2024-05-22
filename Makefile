@@ -13,6 +13,8 @@ CONDA_ENV_NAME = pytorch
 CONDA_ENV_FULL_FILE = environment-full.yaml
 CONDA_ENV_HIST_FILE = environment-hist.yaml
 
+.DEFAULT_GOAL = notebook
+
 .PHONY: notebook
 notebook:
 	@conda run --no-capture-output --live-stream --name $(CONDA_ENV_NAME) \
