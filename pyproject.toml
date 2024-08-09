@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "pytorch-environment"
 version = "0.1.0"
-description = "Jupyter project"
+description = "pytorch environment"
 authors = ["Nick Mazurkin <mazurkin@gmail.com>"]
 readme = "README.md"
 
