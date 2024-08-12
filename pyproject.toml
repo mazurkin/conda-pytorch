@@ -27,11 +27,13 @@ tenacity = "8.2.2"
 numpy = "1.26.4"
 plotly = "5.23"
 seaborn = "0.13.2"
-filelock = "3.15.4"
 torch = { version = "=2.4.0+cu118", source="torch118"}
 torchaudio = { version = "=2.4.0+cu118", source="torch118"}
 torchvision = { version = "=0.19.0+cu118", source="torch118"}
 torchdata = { version = "=0.7.1", source="torch118"}
+
+[tool.poetry.group.fix.dependencies]
+filelock = "3.15.4"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "7.1.1"
