@@ -8,6 +8,7 @@
 
 SHELL := /bin/bash
 ROOT  := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+HOST  ?= "localhost"
 
 CONDA_ENV_NAME = pytorch
 
@@ -21,12 +22,12 @@ CONDA_ENV_NAME = pytorch
 notebook:
 	@conda run --no-capture-output --live-stream --name $(CONDA_ENV_NAME) \
 		jupyter notebook \
-			--IdentityProvider.token='' \
-			--IdentityProvider.password_required='false' \
-			--ServerApp.use_redirect_file=True \
-			--ip=localhost \
-			--port=8888 \
-			--notebook-dir=$(ROOT)/notebooks
+			--IdentityProvider.token '' \
+			--IdentityProvider.password_required 'false' \
+			--ServerApp.use_redirect_file True \
+			--ip "$(HOST)" \
+			--port 18888 \
+			--notebook-dir "$(ROOT)/notebooks"
 
 # -----------------------------------------------------------------------------
 # conda environment
@@ -78,3 +79,20 @@ clean-logs:
 
 .PHONY: clean
 clean: clean-logs clean-data
+
+# -----------------------------------------------------------------------------
+# tensorboard
+# -----------------------------------------------------------------------------
+
+.PHONY: tensorboard
+tensorboard:
+	@conda run --no-capture-output --live-stream --name $(CONDA_ENV_NAME) \
+		tensorboard \
+			--logdir "$(ROOT)/notebooks/tensorboard" \
+			--samples_per_plugin "images=1024,scalars=8096" \
+			--host "$(HOST)" \
+			--port "16006"
+
+.PHONY: tensorboard-clean
+tensorboard-clean:
+	@rm -rf "$(ROOT)/notebooks/tensorboard/"
