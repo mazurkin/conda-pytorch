@@ -8,7 +8,10 @@
 
 SHELL := /bin/bash
 ROOT  := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
-HOST  ?= "localhost"
+
+NB_HOST         ?= localhost
+NB_PORT_JUPYTER ?= 18888
+NB_PORT_TBOARD  ?= 16006
 
 CONDA_ENV_NAME = pytorch
 
@@ -25,8 +28,8 @@ notebook:
 			--IdentityProvider.token '' \
 			--IdentityProvider.password_required 'false' \
 			--ServerApp.use_redirect_file True \
-			--ip "$(HOST)" \
-			--port 18888 \
+			--ip "$(NB_HOST)" \
+			--port $(NB_PORT_JUPYTER) \
 			--notebook-dir "$(ROOT)/notebooks"
 
 # -----------------------------------------------------------------------------
@@ -90,8 +93,8 @@ tensorboard:
 		tensorboard \
 			--logdir "$(ROOT)/notebooks/tensorboard" \
 			--samples_per_plugin "images=1024,scalars=8096" \
-			--host "$(HOST)" \
-			--port "16006"
+			--host "$(NB_HOST)" \
+			--port "$(NB_PORT_TBOARD)"
 
 .PHONY: tensorboard-clean
 tensorboard-clean:
