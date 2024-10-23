@@ -6,8 +6,8 @@ authors = ["Nick Mazurkin <mazurkin@gmail.com>"]
 readme = "README.md"
 
 [[tool.poetry.source]]
-name = "torch118"
-url = "https://download.pytorch.org/whl/cu118"
+name = "torch124"
+url = "https://download.pytorch.org/whl/cu124"
 priority = "explicit"
 
 [tool.poetry.dependencies]
@@ -29,10 +29,10 @@ plotly = "5.23"
 seaborn = "0.13.2"
 
 [tool.poetry.group.pytorch.dependencies]
-torch = { version = "=2.4.0+cu118", source="torch118"}
-torchaudio = { version = "=2.4.0+cu118", source="torch118"}
-torchvision = { version = "=0.19.0+cu118", source="torch118"}
-torchdata = { version = "=0.7.1", source="torch118"}
+torch = { version = "2.5.0+cu124", source="torch124"}
+torchaudio = { version = "2.5.0+cu124", source="torch124"}
+torchvision = { version = "0.20.0+cu124", source="torch124"}
+torchdata = { version = "0.7.1", source="torch124"}
 
 [tool.poetry.group.tensorboard.dependencies]
 tensorboard = "2.17.0"

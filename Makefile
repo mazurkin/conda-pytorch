@@ -37,8 +37,8 @@ notebook:
 env-init:
 	@conda create --yes --name $(CONDA_ENV_NAME) \
 		python=3.10.12 \
-		cuda-toolkit=12.3.2 \
-		cudnn=8.9.2.26 \
+		nvidia::cuda-toolkit=12.4.1 \
+		conda-forge::cudnn=9.3.0.75 \
 		conda-forge::poetry=1.8.3
 
 .PHONY: env-create
