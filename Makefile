@@ -25,12 +25,15 @@ CONDA_ENV_NAME = pytorch
 notebook:
 	@conda run --no-capture-output --live-stream --name $(CONDA_ENV_NAME) \
 		jupyter notebook \
-			--IdentityProvider.token '' \
-			--IdentityProvider.password_required 'false' \
 			--ServerApp.use_redirect_file True \
 			--ip "$(NB_HOST)" \
 			--port $(NB_PORT_JUPYTER) \
 			--notebook-dir "$(ROOT)/notebooks"
+
+.PHONY: notebook-password
+notebook-password:
+	@conda run --no-capture-output --live-stream --name $(CONDA_ENV_NAME) \
+		jupyter notebook password
 
 # -----------------------------------------------------------------------------
 # conda environment
