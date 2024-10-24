@@ -30,10 +30,15 @@ notebook:
 			--port $(NB_PORT_JUPYTER) \
 			--notebook-dir "$(ROOT)/notebooks"
 
-.PHONY: notebook-setup-password
-notebook-setup-password:
+.PHONY: notebook-password
+notebook-password:
 	@conda run --no-capture-output --live-stream --name $(CONDA_ENV_NAME) \
 		jupyter notebook password
+
+.PHONY: notebook-list
+notebook-list:
+	@conda run --no-capture-output --live-stream --name $(CONDA_ENV_NAME) \
+		jupyter notebook list
 
 # -----------------------------------------------------------------------------
 # conda environment
