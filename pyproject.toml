@@ -29,9 +29,9 @@ plotly = "5.23"
 seaborn = "0.13.2"
 
 [tool.poetry.group.pytorch.dependencies]
-torch = { version = "2.5.0+cu124", source="torch124"}
-torchaudio = { version = "2.5.0+cu124", source="torch124"}
-torchvision = { version = "0.20.0+cu124", source="torch124"}
+torch = { version = "2.5.1+cu124", source="torch124"}
+torchaudio = { version = "2.5.1+cu124", source="torch124"}
+torchvision = { version = "0.20.1+cu124", source="torch124"}
 torchdata = { version = "0.7.1", source="torch124"}
 
 [tool.poetry.group.tensorboard.dependencies]

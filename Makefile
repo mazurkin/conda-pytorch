@@ -50,7 +50,7 @@ env-init:
 		python=3.10.12 \
 		nvidia::cuda-toolkit=12.4.1 \
 		conda-forge::cudnn=9.3.0.75 \
-		conda-forge::poetry=1.8.3
+		conda-forge::poetry=1.8.5
 
 .PHONY: env-create
 env-create:
