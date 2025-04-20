@@ -1,8 +1,11 @@
 # pytorch environment
 
 ```shell
-$ make env-init
-$ make env-create
+# first, make an isolated Conda environment with Python, Poetry and CUDA inside
+$ make env-init-conda
+
+# then install the most of the dependencies with Poetry
+$ make env-init-poetry
 ```
 
 ```shell
