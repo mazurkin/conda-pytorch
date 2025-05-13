@@ -31,3 +31,7 @@ tensorboard:
 			--load_fast false \
 			--host "$(NB_HOST)" \
 			--port "$(NB_PORT_TBOARD)"
+
+.PHONY: tensorboard-clean
+tensorboard-clean:
+	@find "$(ROOT)/runs" -mindepth 1 -maxdepth 1 -type d -name '*' -print0 | xargs -0 -r -n 1 rm -rf
