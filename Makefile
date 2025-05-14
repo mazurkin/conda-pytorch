@@ -111,4 +111,4 @@ tensorboard:
 
 .PHONY: tensorboard-clean
 tensorboard-clean:
-	@rm -rf "$(ROOT)/notebooks/tensorboard/"
+	@find "$(ROOT)/notebooks/tensorboard/" -mindepth 1 -maxdepth 1 -type d -name '*' -print0 | xargs -0 -r -n 1 rm -vrf
